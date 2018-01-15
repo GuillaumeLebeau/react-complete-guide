@@ -4,6 +4,8 @@
   // Enable per-language
   "[javascript]": {
     "editor.formatOnSave": true
+  },"[css]": {
+    "editor.formatOnSave": true
   },
   "javascript.format.enable": false
 }
