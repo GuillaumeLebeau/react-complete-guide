@@ -5,15 +5,41 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: 'c7bd10dc-0b62-453f-9745-b68ec27ec655', name: 'Max', age: 28 },
-      { id: '9b7c5f16-91c9-49ad-9191-edb01821adbb', name: 'Manu', age: 29 },
-      { id: 'a99bb1b1-c1ab-4594-a144-2da820fa3ce9', name: 'Stephanie', age: 26 }
-    ],
-    otherState: 'some other value',
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Inside Constructor', props);
+    this.state = {
+      persons: [
+        { id: 'c7bd10dc-0b62-453f-9745-b68ec27ec655', name: 'Max', age: 28 },
+        { id: '9b7c5f16-91c9-49ad-9191-edb01821adbb', name: 'Manu', age: 29 },
+        {
+          id: 'a99bb1b1-c1ab-4594-a144-2da820fa3ce9',
+          name: 'Stephanie',
+          age: 26
+        }
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount()');
+  }
+
+  // state = {
+  //   persons: [
+  //     { id: 'c7bd10dc-0b62-453f-9745-b68ec27ec655', name: 'Max', age: 28 },
+  //     { id: '9b7c5f16-91c9-49ad-9191-edb01821adbb', name: 'Manu', age: 29 },
+  //     { id: 'a99bb1b1-c1ab-4594-a144-2da820fa3ce9', name: 'Stephanie', age: 26 }
+  //   ],
+  //   otherState: 'some other value',
+  //   showPersons: false
+  // };
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -47,6 +73,8 @@ class App extends Component {
   };
 
   render() {
+    console.log('[App.js] Inside render()');
+
     let persons = null;
 
     if (this.state.showPersons) {
